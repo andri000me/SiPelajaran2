@@ -146,6 +146,25 @@ class M_pengguna extends CI_Model {
 		$this->db->insert('tb_dosen', $data);
 	}
 
+	public function lihat_dosen_by($id)
+	{
+		$this->db->where('id_dosen', $id);
+		$query = $this->db->get('tb_dosen');
+		return $query->row();
+	}
+
+	public function edit_data_dosen($data, $id)
+	{
+		$this->db->where('id_dosen', $id);
+		$this->db->update('tb_dosen', $data);
+	}
+
+	public function hapus_data_dosen($id)
+	{
+		$this->db->where('id_dosen', $id);
+		$this->db->delete('tb_dosen');
+	}
+
 	//Kelola Pengguna (Mahasiswa)
 	public function tambah_data_mahasiswa($data)
 	{
@@ -158,5 +177,23 @@ class M_pengguna extends CI_Model {
 		return $query->result();
 	}
 
+	public function lihat_mahasiswa_by($id)
+	{
+		$this->db->where('id_mahasiswa', $id);
+		$query = $this->db->get('tb_mahasiswa');
+		return $query->row();
+	}
+
+	public function edit_data_mahasiswa($data, $id)
+	{
+		$this->db->where('id_mahasiswa', $id);
+    $this->db->update('tb_mahasiswa', $data);
+	}
+
+	public function hapus_data_mahasiswa($id)
+	{
+		$this->db->where('id_mahasiswa', $id);
+		$this->db->delete('tb_mahasiswa');
+	}
 
 }

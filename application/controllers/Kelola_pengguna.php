@@ -50,8 +50,40 @@ class Kelola_pengguna extends CI_Controller {
 		$this->m_pengguna->tambah_data_dosen($data_2);
 		$alert	= "<script>alert('Data berhasil disimpan')</script>";
 		$this->session->set_flashdata("alert", $alert);
-		redirect('kelola_pengguna/tambah_dosen');
+		redirect('kelola_pengguna/tampil_dosen');
 
+	}
+
+	public function edit_dosen($id)
+	{
+		$data['panel_title'] = 'Edit Dosen';
+    $data['db'] = $this->m_pengguna->lihat_dosen_by($id);
+    $data['konten'] = 'pengguna/v_edit_dosen';
+    $this->load->view('template_admin', $data);
+	}
+
+	public function edit_dosen_proses($id)
+	{
+		$id = $this->uri->segment('3');
+		$data = array(
+			"nama_dosen" 		=> $this->input->post('nama_dosen'),
+			"kontak" 				=> $this->input->post('kontak'),
+			"alamat" 				=> $this->input->post('alamat'),
+		);
+
+		$this->m_pengguna->edit_data_dosen($data, $id);
+		$alert	= "<script>alert('Data berhasil disimpan')</script>";
+		$this->session->set_flashdata("alert", $alert);
+		redirect('kelola_pengguna/tampil_dosen');
+	}
+
+	public function hapus_dosen($id)
+	{
+		$id = $this->uri->segment('3');
+		$this->m_pengguna->hapus_data_dosen($id);
+		$alert	= "<script>alert('Data berhasil dihapus')</script>";
+		$this->session->set_flashdata("alert", $alert);
+		redirect('kelola_pengguna/tampil_dosen');
 	}
 
 	public function tambah_mahasiswa()
@@ -90,13 +122,39 @@ class Kelola_pengguna extends CI_Controller {
 		$this->m_pengguna->tambah_data_mahasiswa($data_2);
 		$alert	= "<script>alert('Data berhasil disimpan')</script>";
 		$this->session->set_flashdata("alert", $alert);
-		redirect('kelola_pengguna/tambah_mahasiswa');
+		redirect('kelola_pengguna/tampil_mahasiswa');
 	}
 
-	public function test()
+	public function edit_mahasiswa($id)
 	{
-		$data = $this->m_pengguna->get_data_dosen();
-		var_dump($data);
+		$data['panel_title'] = 'Edit Mahasiswa';
+		$data['db'] = $this->m_pengguna->lihat_mahasiswa_by($id);
+		$data['konten'] = 'pengguna/v_edit_mahasiswa';
+		$this->load->view('template_admin', $data);
+	}
+
+	public function edit_mahasiswa_proses($id)
+	{
+		$id = $this->uri->segment('3');
+
+		$data = array(
+			"npm" 					=> $this->input->post('npm'),
+			"nama_mahasiswa"=> $this->input->post('nama_mahasiswa'),
+		);
+
+		$this->m_pengguna->edit_data_mahasiswa($data, $id);
+		$alert	= "<script>alert('Data berhasil diubah')</script>";
+		$this->session->set_flashdata("alert", $alert);
+		redirect('kelola_pengguna/tampil_mahasiswa');
+	}
+
+	public function hapus_mahasiswa($id)
+	{
+		$id = $this->uri->segment('3');
+		$this->m_pengguna->hapus_data_mahasiswa($id);
+		$alert	= "<script>alert('Data berhasil dihapus')</script>";
+		$this->session->set_flashdata("alert", $alert);
+		redirect('kelola_pengguna/tampil_mahasiswa');
 	}
 
 }

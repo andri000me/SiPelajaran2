@@ -29,7 +29,8 @@
                           <td class=" "><?php echo $row->alamat ;?></td>
                           <td class=" "><?php echo $row->kontak ;?></td>
                           <td class=" ">
-
+                            <a class="btn btn-info" href="<?php echo base_url();?>kelola_pengguna/edit_dosen/<?php echo $row->id_dosen;?>">Edit</a>
+                            <a class="btn btn-danger" onclick="return hapus()" href="<?php echo base_url();?>kelola_pengguna/hapus_dosen/<?php echo $row->id_dosen;?>">Hapus</a>
                           </td>
                         </tr>
                       <?php endforeach; ?>

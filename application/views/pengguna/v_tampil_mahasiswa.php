@@ -27,7 +27,8 @@
                           <td class=" "><?php echo $row->npm ;?></td>
                           <td class=" "><?php echo $row->nama_mahasiswa ;?></td>
                           <td class=" ">
-
+                            <a class="btn btn-info" href="<?php echo base_url();?>kelola_pengguna/edit_mahasiswa/<?php echo $row->id_mahasiswa;?>">Edit</a>
+                            <a class="btn btn-danger" onclick="return hapus()" href="<?php echo base_url();?>kelola_pengguna/hapus_mahasiswa/<?php echo $row->id_mahasiswa;?>">Hapus</a>
                           </td>
                         </tr>
                       <?php endforeach; ?>
