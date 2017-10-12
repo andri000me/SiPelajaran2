@@ -8,14 +8,14 @@ class Kelola_materi extends CI_Controller{
     parent::__construct();
     //load model and add alias
     //check session logged_in
-      $this->load->model(array('m_pengguna', 'm_materi', 'm_jadwal'));
+      $this->load->model(array('m_pengguna', 'm_materi', 'm_jadwal', 'm_matakuliah'));
       $this->m_pengguna->check_session();
   }
 
   public function tambah_materi()
   {
     $data['panel_title'] = 'Tambah Materi Kuliah';
-    $data['matkul'] = $this->m_jadwal->lihat_data_mk();
+    $data['matkul'] = $this->m_matakuliah->lihat_data_mk();
     $data['pertemuan'] = $this->m_jadwal->lihat_data_pertemuan();
     $data['dosen'] = $this->m_pengguna->tampil_data_dosen();
     $data['konten'] = 'materikuliah/v_tambah_materi';
@@ -87,7 +87,7 @@ class Kelola_materi extends CI_Controller{
   public function tambah_materi_admin()
   {
     $data['panel_title'] = 'Tambah Materi Kuliah';
-    $data['matkul'] = $this->m_jadwal->lihat_data_mk();
+    $data['matkul'] = $this->m_matakuliah->lihat_data_mk();
     $data['pertemuan'] = $this->m_jadwal->lihat_data_pertemuan();
     $data['dosen'] = $this->m_pengguna->tampil_data_dosen();
     $data['konten'] = 'materikuliah/v_tambah_materi_admin';

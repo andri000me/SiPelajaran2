@@ -44,14 +44,15 @@ class M_matakuliah extends CI_Model {
     $this->db->delete('tb_matakuliah');
   }
 
-  public function lihat_data_pertemuan() {
-    $query = $this->db->get('tb_pertemuan');
-    return $query->result();
-  }
-
   public function lihat_data_semester() {
     $query = $this->db->get('tb_semester');
     return $query->result();
   }
+
+  public function lihat_data_matkul() {
+    $query = $this->db->get('tb_matakuliah');
+    return $query->result();
+  }
+
 
 }

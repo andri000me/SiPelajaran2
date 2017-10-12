@@ -21,11 +21,7 @@
               if($hak_akses == $jabatan[1]) {
           ;?>
         <ul class="nav side-menu">
-            <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
-                <ul class="nav child_menu" style="display: none">
-                    <li><a href="index.html">Dashboard</a>
-                    </li>
-                </ul>
+            <li><a href="<?php echo base_url();?>dashboard"><i class="fa fa-home"></i> Dashboard</a>
             </li>
             <li>
               <a href="<?php echo base_url();?>kelola_matakuliah/tampil_mk"><i class="fa fa-file"></i> Kelola Matakuliah</a>

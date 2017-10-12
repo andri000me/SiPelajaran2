@@ -11,9 +11,10 @@
                     <thead>
                         <tr class="headings">
                             <th>No </th>
-                            <th>Pukul </th>
                             <th>Hari </th>
+                            <th>Pukul </th>
                             <th>Matakuliah </th>
+                            <th>Kode MK </th>
                             <th>SKS </th>
                             <th>Dosen </th>
                             <th width="16%">Aksi </th>
@@ -26,9 +27,10 @@
                        foreach ($db as $row): ?>
                         <tr class="even pointer">
                           <td clcass=" "><?php  echo $no++ ;?></td>
-                          <td class=" "><?php echo $row->jam ;?></td>
                           <td class=" "><?php echo $row->hari ;?></td>
-                          <td class=" "><?php echo $row->matakuliah ;?></td>
+                          <td class=" "><?php echo $row->jam ;?></td>
+                          <td class=" "><?php echo $row->matakuliah;?> - <?php echo $row->semester;?> - <?php echo $row->kelas;?></td>
+                          <td class=" "><?php echo $row->kode_matkul ;?></td>
                           <td class=" "><?php echo $row->sks ;?></td>
                           <td class=" "><?php echo $row->nama_dosen ;?></td>
                           <td class=" ">

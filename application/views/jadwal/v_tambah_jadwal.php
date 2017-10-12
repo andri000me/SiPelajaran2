@@ -36,6 +36,16 @@
                       </div>
                   </div>
                   <div class="form-group">
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12">Kelas</label>
+                      <div class="col-md-3 col-sm-3 col-xs-8">
+                          <select class="form-control" name="id_kelas">
+                            <?php foreach ($kelas as $row): ?>
+                              <option value="<?php echo $row->id_kelas ; ?>"><?php echo $row->kelas ; ?></option>
+                            <?php endforeach; ?>
+                          </select>
+                      </div>
+                  </div>
+                  <div class="form-group">
                       <label class="control-label col-md-3 col-sm-3 col-xs-12">Dosen</label>
                       <div class="col-md-2 col-sm-2 col-xs-8">
                           <select class="form-control" name="id_dosen">
